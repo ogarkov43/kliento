@@ -1,0 +1,39 @@
+ФАЙЛЫ ДЛЯ ЗАГРУЗКИ НА GITHUB
+============================
+
+Загрузите эти файлы и папки:
+
+КОРНЕВЫЕ ФАЙЛЫ:
+- package.json
+- package-lock.json
+- tsconfig.json
+- tsconfig.node.json
+- vite.config.ts
+- tailwind.config.js
+- postcss.config.js
+- vercel.json
+- netlify.toml
+- _redirects
+- index.html
+- .gitignore
+- README.md
+- .eslintrc.cjs (если есть)
+
+ПАПКИ (загрузите полностью):
+- src/ (вся папка со всеми файлами внутри)
+- .vscode/ (если есть)
+
+НЕ ЗАГРУЖАЙТЕ:
+- node_modules/
+- dist/
+- .git/
+- *.log
+- *.pid
+
+ИНСТРУКЦИЯ:
+1. Откройте ваш репозиторий на GitHub
+2. Нажмите "uploading an existing file"
+3. Перетащите все файлы из списка выше
+4. Введите "Initial commit"
+5. Нажмите "Commit changes"
+
