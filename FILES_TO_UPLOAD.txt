@@ -1,0 +1,40 @@
+ФАЙЛЫ ДЛЯ ЗАГРУЗКИ НА GITHUB
+============================
+
+✅ ЗАГРУЗИТЕ ВСЕ ЭТИ ФАЙЛЫ И ПАПКИ:
+
+КОРНЕВЫЕ ФАЙЛЫ:
+- package.json
+- package-lock.json
+- tsconfig.json
+- tsconfig.node.json
+- vite.config.ts
+- tailwind.config.js
+- postcss.config.js
+- index.html
+- .gitignore
+- README.md
+- .eslintrc.cjs
+- netlify.toml
+- _redirects
+
+ПАПКИ (загрузите полностью):
+- src/ (вся папка)
+- .github/ (вся папка - ОБЯЗАТЕЛЬНО!)
+- .vscode/ (если есть)
+
+❌ НЕ ЗАГРУЖАЙТЕ:
+- node_modules/
+- dist/
+- .git/
+- *.log
+- *.pid
+
+ИНСТРУКЦИЯ:
+1. Откройте Finder с папкой проекта
+2. Выделите все файлы (Cmd+A)
+3. Исключите папки: node_modules, dist, .git
+4. Перетащите в окно GitHub
+5. Введите "Initial commit"
+6. Нажмите "Commit changes"
+
