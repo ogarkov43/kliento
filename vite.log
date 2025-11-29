@@ -2061,3 +2061,21 @@ Now using node v24.8.0 (npm v11.6.0)
 7:09:13 PM [vite] hmr update /src/components/StoriesViewer.tsx, /src/index.css
 7:11:21 PM [vite] hmr update /src/components/StoriesViewer.tsx, /src/index.css
 7:11:32 PM [vite] hmr update /src/components/StoriesViewer.tsx, /src/index.css
+8:03:54 PM [vite] page reload index.html
+8:04:09 PM [vite] vite.config.ts changed, restarting server...
+Re-optimizing dependencies because vite config has changed
+8:04:09 PM [vite] server restarted.
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.1.138:5173/
+8:04:35 PM [vite] vite.config.ts changed, restarting server...
+Re-optimizing dependencies because vite config has changed
+8:04:35 PM [vite] server restarted.
+8:05:05 PM [vite] vite.config.ts changed, restarting server...
+8:05:05 PM [vite] page reload index.html
+8:05:05 PM [vite] server restarted.
+8:06:52 PM [vite] vite.config.ts changed, restarting server...
+Re-optimizing dependencies because vite config has changed
+8:06:52 PM [vite] server restarted.
+8:07:20 PM [vite] vite.config.ts changed, restarting server...
+8:07:20 PM [vite] server restarted.
