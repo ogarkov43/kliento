@@ -2081,3 +2081,21 @@ Re-optimizing dependencies because vite config has changed
 8:07:20 PM [vite] server restarted.
 8:10:09 PM [vite] page reload index.html
 8:10:36 PM [vite] page reload index.html
+8:12:50 PM [vite] vite.config.ts changed, restarting server...
+✘ [ERROR] JSON does not support trailing commas
+
+    package.json:10:87:
+      10 │ ...--ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+         ╵                                                                     ^
+
+failed to load config from /Users/kirillogarkov/Desktop/kliento/vite.config.ts
+8:12:50 PM [vite] Build failed with 1 error:
+package.json:10:87: ERROR: JSON does not support trailing commas
+8:12:50 PM [vite] server restart failed
+8:13:55 PM [vite] page reload index.html
+8:13:55 PM [vite] vite.config.ts changed, restarting server...
+Re-optimizing dependencies because vite config has changed
+8:13:55 PM [vite] server restarted.
+
+  ➜  Local:   http://localhost:5173/kliento/
+  ➜  Network: http://192.168.1.138:5173/kliento/
