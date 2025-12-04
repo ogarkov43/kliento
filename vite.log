@@ -1835,3 +1835,7 @@ Error: Client network socket disconnected before secure TLS connection was estab
 4:21:05 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
 4:21:27 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
 4:21:36 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
+4:27:52 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:28:10 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:28:27 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:28:41 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
