@@ -1674,3 +1674,164 @@ Error: Client network socket disconnected before secure TLS connection was estab
 3:33:05 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
 3:33:47 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
 3:33:56 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:40:09 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:10 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:22 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:27 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:35 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:37 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:40:50 AM [vite] hmr update /src/components/ActivationModal.tsx, /src/index.css
+3:42:06 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:42:16 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:43:19 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:43:20 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:45:59 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:46:01 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+3:46:08 AM [vite] hmr update /src/pages/Activation.tsx, /src/index.css
+4:11:03 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:11:05 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:11:05 AM [vite] Internal server error: /Users/kirillogarkov/Desktop/kliento/src/components/AmountInputModal.tsx: Expected corresponding JSX closing tag for <motion.div>. (460:10)
+
+  458 |               }
+  459 |             `}</style>
+> 460 |           </div>
+      |           ^
+  461 |         )}
+  462 |
+  463 |         {/* Кнопка подтвердить - всегда зеленая после подтверждения */}
+  Plugin: vite:react-babel
+  File: /Users/kirillogarkov/Desktop/kliento/src/components/AmountInputModal.tsx:460:10
+  458|                }
+  459|              `}</style>
+  460|            </div>
+     |            ^
+  461|          )}
+  462|  
+      at constructor (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4756:16)
+      at TypeScriptParserMixin.jsxParseElement (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4778:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4788:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9828:39
+      at TypeScriptParserMixin.tryParse (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:6932:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9828:18)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12567:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11747:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11395:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11050:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11045:21)
+      at TypeScriptParserMixin.parseExprOp (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11011:27)
+      at TypeScriptParserMixin.parseExprOp (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9365:18)
+      at TypeScriptParserMixin.parseExprOp (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11017:21)
+      at TypeScriptParserMixin.parseExprOp (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9365:18)
+      at TypeScriptParserMixin.parseExprOps (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10972:17)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseExpression (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4661:31)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4740:36)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4727:32)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4727:32)
+      at TypeScriptParserMixin.jsxParseElement (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4778:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4788:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11130:21)
+4:11:07 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:11:13 AM [vite] hmr update /src/components/AmountInputModal.tsx, /src/index.css
+4:15:20 AM [vite] hmr update /src/components/Header.tsx, /src/index.css
+4:15:29 AM [vite] hmr update /src/components/Header.tsx, /src/index.css
+4:15:48 AM [vite] hmr update /src/components/Header.tsx, /src/index.css
+4:15:48 AM [vite] Internal server error: /Users/kirillogarkov/Desktop/kliento/src/components/Header.tsx: Expected corresponding JSX closing tag for <div>. (753:8)
+
+  751 |             </button>
+  752 |           </div>
+> 753 |         </>
+      |         ^
+  754 |       )}
+  755 |     </header>
+  756 |   )
+  Plugin: vite:react-babel
+  File: /Users/kirillogarkov/Desktop/kliento/src/components/Header.tsx:753:8
+  751|              </button>
+  752|            </div>
+  753|          </>
+     |          ^
+  754|        )}
+  755|      </header>
+      at constructor (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4751:14)
+      at TypeScriptParserMixin.jsxParseElement (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4778:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4788:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9828:39
+      at TypeScriptParserMixin.tryParse (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:6932:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9828:18)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12567:17)
+      at TypeScriptParserMixin.parseExprListItem (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12249:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11316:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11250:29)
+      at TypeScriptParserMixin.parseSubscript (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11184:19)
+      at TypeScriptParserMixin.parseSubscript (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9329:18)
+      at TypeScriptParserMixin.parseSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11158:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11149:17)
+      at TypeScriptParserMixin.parseUpdate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9839:20)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:17)
+      at TypeScriptParserMixin.parseConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10955:30)
+      at TypeScriptParserMixin.parseConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9664:18)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10949:17)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:9839:20)
+      at /Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:39
+      at TypeScriptParserMixin.allowInAnd (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:10864:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:12567:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11747:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:11395:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/kirillogarkov/Desktop/kliento/node_modules/@babel/parser/lib/index.js:4793:20)
+4:15:49 AM [vite] hmr update /src/components/Header.tsx, /src/index.css
+4:15:58 AM [vite] hmr update /src/components/Header.tsx, /src/index.css
+4:21:04 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
+4:21:05 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
+4:21:27 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
+4:21:36 AM [vite] hmr update /src/components/TabBar.tsx, /src/index.css
