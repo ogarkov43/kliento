@@ -1,6 +1,13 @@
-# Kliento - Telegram Mini App
+# Nodes - Telegram Mini App
 
-Telegram Mini App на React + TypeScript с минималистичным дизайном в стиле iOS.
+Telegram Mini App для организации коммуникаций через Nodes (похоже на Discord/Slack).
+
+## Технологии
+
+- React 18
+- TypeScript
+- Vite
+- Telegram Web App SDK
 
 ## Установка
 
@@ -8,17 +15,29 @@ Telegram Mini App на React + TypeScript с минималистичным ди
 npm install
 ```
 
-## Запуск
+## Разработка
 
 ```bash
 npm run dev
 ```
-
-Приложение будет доступно по адресу `http://localhost:5173`
 
 ## Сборка
 
 ```bash
 npm run build
 ```
+
+## Структура проекта
+
+```
+src/
+  components/     # React компоненты
+  styles/         # Глобальные стили и переменные
+  types/          # TypeScript типы
+  utils/          # Утилиты (Telegram SDK)
+```
+
+
+
+
 
