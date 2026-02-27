@@ -1,12 +1,24 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// Конфигурация Vite для React приложения Weny.
 export default defineConfig({
   plugins: [react()],
-  base: '/',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+  base: './',
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
   },
-});
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
+  }
+})
