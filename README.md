@@ -1,105 +1,35 @@
-# Telegram Mini App - Галактика
+# weforever
 
-Приложение для Telegram Mini Apps на React JS с интерактивной 3D галактикой.
+Приглашение (Vite + React). Статика в `public/` (видео, музыка, модели) подключается через `src/lib/publicUrl.js`, чтобы работать на **GitHub Pages** (подпапка репозитория).
 
-## Установка
+## Локально
 
 ```bash
 npm install
-```
-
-## Запуск в режиме разработки
-
-```bash
 npm run dev
 ```
 
-Приложение будет доступно по адресу `http://localhost:3000`
-
-## Сборка для production
+## Сборка
 
 ```bash
 npm run build
 ```
 
-Собранные файлы будут в папке `dist/`
-
-## Деплой на GitHub Pages
-
-### 1. Подготовка репозитория
+Результат — папка `dist/`. Проверка локально:
 
 ```bash
-# Инициализация git (если еще не сделано)
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/ВАШ_USERNAME/ВАШ_РЕПОЗИТОРИЙ.git
-git push -u origin main
+npm run preview
 ```
 
-### 2. Настройка GitHub Pages
+## GitHub
 
-1. Перейдите в Settings → Pages вашего репозитория
-2. В разделе "Source" выберите "GitHub Actions"
-3. Или выберите ветку `main` и папку `/dist`
+1. **Репозиторий** — залейте проект (включая `package-lock.json`).
+2. **GitHub Pages** — Settings → Pages → **Source: GitHub Actions** (после первого push в `main`/`master` сработает workflow из `.github/workflows/deploy-github-pages.yml`).
+3. Сайт будет по адресу вида `https://<user>.github.io/<repo>/`.
 
-### 3. Автоматический деплой (рекомендуется)
+Если нужен другой **base** (редко), в `vite.config.js` поменяйте `base` (например `'/имя-репо/'`) и пересоберите.
 
-Создайте файл `.github/workflows/deploy.yml`:
+## Важно
 
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/configure-pages@v3
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: './dist'
-      - id: deployment
-        uses: actions/deploy-pages@v1
-```
-
-### 4. Ручной деплой
-
-```bash
-npm run build
-# Скопируйте содержимое папки dist в корень ветки gh-pages
-```
-
-## Интеграция с Telegram
-
-После деплоя на GitHub Pages:
-
-1. Получите URL вашего приложения (например: `https://ВАШ_USERNAME.github.io/ВАШ_РЕПОЗИТОРИЙ/`)
-2. Откройте @BotFather в Telegram
-3. Выберите вашего бота или создайте нового
-4. Используйте команду `/newapp` или `/editapp`
-5. Укажите URL вашего приложения
-6. Укажите название и описание приложения
-
-## Особенности
-
-- Интерактивная 3D галактика с вращением
-- Масштабирование и поворот камеры
-- Мерцающие частицы
-- Адаптивный дизайн для мобильных устройств
-- Оптимизированная производительность
+- В `.gitignore` указан `dist` — артефакт собирается на CI или вручную перед деплоем.
+- Переменные `VITE_*` в `.env` для кастомных URL (см. `ambientMusic.js`).
