@@ -18,6 +18,9 @@ type TelegramWebAppLike = {
   expand: () => void;
   disableVerticalSwipes?: () => void;
   enableVerticalSwipes?: (isEnabled: boolean) => void;
+  enableClosingConfirmation?: () => void;
+  disableClosingConfirmation?: () => void;
+  isClosingConfirmationEnabled?: boolean;
   isVersionAtLeast: (version: string) => boolean;
   setHeaderColor: (color: "bg_color" | "secondary_bg_color" | `#${string}`) => void;
   setBackgroundColor: (color: "bg_color" | "secondary_bg_color" | `#${string}`) => void;
@@ -51,6 +54,9 @@ export const getTelegramWebApp = (): TelegramWebAppLike => {
     expand: () => undefined,
     disableVerticalSwipes: () => undefined,
     enableVerticalSwipes: () => undefined,
+    enableClosingConfirmation: () => undefined,
+    disableClosingConfirmation: () => undefined,
+    isClosingConfirmationEnabled: false,
     isVersionAtLeast: () => false,
     setHeaderColor: () => undefined,
     setBackgroundColor: () => undefined,

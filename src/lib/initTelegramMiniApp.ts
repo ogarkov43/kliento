@@ -49,6 +49,43 @@ const applyOverflowSwipeLock = (): void => {
 };
 
 /**
+ * Удерживает страницу в безопасной scroll-позиции (workaround iOS Telegram).
+ */
+const setupOverflowGuard = (): void => {
+  const keepScroll = () => {
+    if (window.scrollY < TELEGRAM_OVERFLOW_LOCK) {
+      window.scrollTo(0, TELEGRAM_OVERFLOW_LOCK);
+    }
+  };
+
+  let startY = 0;
+  document.addEventListener(
+    "touchstart",
+    (event) => {
+      startY = event.touches[0]?.clientY ?? 0;
+    },
+    { passive: true },
+  );
+  document.addEventListener(
+    "touchmove",
+    (event) => {
+      const currentY = event.touches[0]?.clientY ?? startY;
+      const draggingDown = currentY - startY > 8;
+      const nearTop = window.scrollY <= TELEGRAM_OVERFLOW_LOCK + 2;
+      if (draggingDown && nearTop) {
+        event.preventDefault();
+        keepScroll();
+      }
+    },
+    { passive: false },
+  );
+
+  document.addEventListener("touchend", keepScroll, { passive: true });
+  window.addEventListener("scroll", keepScroll, { passive: true });
+  window.setInterval(keepScroll, 400);
+};
+
+/**
  * Принудительно отключает вертикальный свайп закрытия через все доступные API.
  */
 const disableCloseSwipe = (): void => {
@@ -58,6 +95,8 @@ const disableCloseSwipe = (): void => {
   } else if (typeof webApp.enableVerticalSwipes === "function") {
     webApp.enableVerticalSwipes(false);
   }
+  webApp.enableClosingConfirmation?.();
+  webApp.isClosingConfirmationEnabled = true;
   setupSwipeBehavior(false);
 };
 
@@ -82,9 +121,18 @@ export const initTelegramMiniApp = (): void => {
   try {
     webApp.ready();
     webApp.expand();
+    setupOverflowGuard();
     reapplySwipeProtection();
     requestAnimationFrame(reapplySwipeProtection);
     window.setTimeout(reapplySwipeProtection, 200);
+    window.setTimeout(() => {
+      webApp.expand();
+      reapplySwipeProtection();
+    }, 600);
+    window.setTimeout(() => {
+      webApp.expand();
+      reapplySwipeProtection();
+    }, 1200);
 
     webApp.setHeaderColor("bg_color");
     const backgroundColor = "#21090C" as `#${string}`;
