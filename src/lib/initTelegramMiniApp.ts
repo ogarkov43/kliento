@@ -50,11 +50,22 @@ const disableCloseSwipe = (): void => {
  */
 const applyOverflowSwipeLock = (): void => {
   const overflow = TELEGRAM_OVERFLOW_LOCK;
+  document.documentElement.style.overflowY = "hidden";
+  document.documentElement.style.height = `${window.innerHeight + overflow}px`;
   document.body.style.overflowY = "hidden";
   document.body.style.marginTop = `${overflow}px`;
   document.body.style.height = `${window.innerHeight + overflow}px`;
   document.body.style.paddingBottom = `${overflow}px`;
   window.scrollTo(0, overflow);
+};
+
+/**
+ * Удерживает scroll на "безопасной" позиции, чтобы свайп вниз не схлопывал WebView.
+ */
+const keepScrollLocked = (): void => {
+  if (window.scrollY < TELEGRAM_OVERFLOW_LOCK) {
+    window.scrollTo(0, TELEGRAM_OVERFLOW_LOCK);
+  }
 };
 
 /**
@@ -79,10 +90,14 @@ const setupTouchSwipeGuard = (): void => {
       const nearTop = window.scrollY <= TELEGRAM_OVERFLOW_LOCK + 2;
       if (deltaY > 8 && nearTop) {
         event.preventDefault();
+        keepScrollLocked();
       }
     },
     { passive: false },
   );
+
+  window.addEventListener("scroll", keepScrollLocked, { passive: true });
+  document.addEventListener("touchend", keepScrollLocked, { passive: true });
 };
 
 /**
@@ -114,6 +129,9 @@ export const initTelegramMiniApp = (): void => {
     window.setTimeout(applyOverflowSwipeLock, 250);
     webApp.onEvent("viewportChanged", applyOverflowSwipeLock);
     window.addEventListener("resize", applyOverflowSwipeLock, { passive: true });
+    keepScrollLocked();
+    requestAnimationFrame(keepScrollLocked);
+    window.setTimeout(keepScrollLocked, 250);
     setupTouchSwipeGuard();
 
     webApp.setHeaderColor("bg_color");

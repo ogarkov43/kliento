@@ -21,7 +21,11 @@ export const HomeTournamentCard = ({
 }: HomeTournamentCardProps) => {
   const titleWords = titleText.trim().split(/\s+/);
   const lottieSource = `${import.meta.env.BASE_URL}center.lottie`;
-  const userAvatarUrl = getTelegramWebApp().initDataUnsafe.user?.photo_url;
+  const telegramUser = getTelegramWebApp().initDataUnsafe.user;
+  const fallbackAvatarByUsername = telegramUser?.username
+    ? `https://t.me/i/userpic/320/${telegramUser.username}.jpg`
+    : undefined;
+  const userAvatarUrl = telegramUser?.photo_url || fallbackAvatarByUsername;
 
   return (
     <article
