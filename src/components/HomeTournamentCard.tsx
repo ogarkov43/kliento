@@ -1,7 +1,7 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ratingBg from "@/assets/rating-bg.svg";
 import tournamentBg from "@/assets/tournament-bg.svg";
-import { getTelegramWebApp } from "@/lib/telegramWebApp";
+import { useTelegramUserPhotoUrl } from "@/hooks/useTelegramUserPhotoUrl";
 
 type HomeTournamentCardProps = {
   titleOnly?: boolean;
@@ -21,11 +21,7 @@ export const HomeTournamentCard = ({
 }: HomeTournamentCardProps) => {
   const titleWords = titleText.trim().split(/\s+/);
   const lottieSource = `${import.meta.env.BASE_URL}center.lottie`;
-  const telegramUser = getTelegramWebApp().initDataUnsafe.user;
-  const fallbackAvatarByUsername = telegramUser?.username
-    ? `https://t.me/i/userpic/320/${telegramUser.username}.jpg`
-    : undefined;
-  const userAvatarUrl = telegramUser?.photo_url || fallbackAvatarByUsername;
+  const userAvatarUrl = useTelegramUserPhotoUrl();
 
   return (
     <article
@@ -49,7 +45,7 @@ export const HomeTournamentCard = ({
               autoplay
               loop
               segment={[0, 120]}
-              className="h-[125%] w-[125%]"
+              className="h-[125%] w-[125%] brightness-[1.14] contrast-[1.06]"
               renderConfig={{
                 autoResize: true,
                 devicePixelRatio: 2,
@@ -116,7 +112,8 @@ export const HomeTournamentCard = ({
         ) : null}
         <h2
           className={[
-            "font-gunterz uppercase leading-[0.9] tracking-tight text-[#F2F2F2]",
+            "font-gunterz uppercase leading-[0.9] tracking-tight",
+            titleOnly ? "text-[#FFFFFF]" : "text-[#F2F2F2]",
             "text-[32px]",
           ].join(" ")}
         >

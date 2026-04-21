@@ -36,22 +36,11 @@ const setupSwipeBehavior = (allowVerticalSwipe: boolean): void => {
 };
 
 /**
- * Принудительно отключает вертикальный свайп закрытия через все доступные API.
- */
-const disableCloseSwipe = (): void => {
-  const webApp = getTelegramWebApp();
-  webApp.disableVerticalSwipes?.();
-  setupSwipeBehavior(false);
-};
-
-/**
  * Дополнительный iOS-safe lock против случайного свайпа закрытия вниз.
  * Основано на практическом workaround для Telegram WebView.
  */
 const applyOverflowSwipeLock = (): void => {
   const overflow = TELEGRAM_OVERFLOW_LOCK;
-  document.documentElement.style.overflowY = "hidden";
-  document.documentElement.style.height = `${window.innerHeight + overflow}px`;
   document.body.style.overflowY = "hidden";
   document.body.style.marginTop = `${overflow}px`;
   document.body.style.height = `${window.innerHeight + overflow}px`;
@@ -60,44 +49,24 @@ const applyOverflowSwipeLock = (): void => {
 };
 
 /**
- * Удерживает scroll на "безопасной" позиции, чтобы свайп вниз не схлопывал WebView.
+ * Принудительно отключает вертикальный свайп закрытия через все доступные API.
  */
-const keepScrollLocked = (): void => {
-  if (window.scrollY < TELEGRAM_OVERFLOW_LOCK) {
-    window.scrollTo(0, TELEGRAM_OVERFLOW_LOCK);
+const disableCloseSwipe = (): void => {
+  const webApp = getTelegramWebApp();
+  if (typeof webApp.disableVerticalSwipes === "function") {
+    webApp.disableVerticalSwipes();
+  } else if (typeof webApp.enableVerticalSwipes === "function") {
+    webApp.enableVerticalSwipes(false);
   }
+  setupSwipeBehavior(false);
 };
 
 /**
- * Блокирует резкий свайп вниз на верхней границе WebView.
+ * Повторно применяет защиту от свайпа и lock высоты после изменений viewport.
  */
-const setupTouchSwipeGuard = (): void => {
-  let startY = 0;
-
-  document.addEventListener(
-    "touchstart",
-    (event) => {
-      startY = event.touches[0]?.clientY ?? 0;
-    },
-    { passive: true },
-  );
-
-  document.addEventListener(
-    "touchmove",
-    (event) => {
-      const currentY = event.touches[0]?.clientY ?? startY;
-      const deltaY = currentY - startY;
-      const nearTop = window.scrollY <= TELEGRAM_OVERFLOW_LOCK + 2;
-      if (deltaY > 8 && nearTop) {
-        event.preventDefault();
-        keepScrollLocked();
-      }
-    },
-    { passive: false },
-  );
-
-  window.addEventListener("scroll", keepScrollLocked, { passive: true });
-  document.addEventListener("touchend", keepScrollLocked, { passive: true });
+const reapplySwipeProtection = (): void => {
+  applyOverflowSwipeLock();
+  disableCloseSwipe();
 };
 
 /**
@@ -113,30 +82,20 @@ export const initTelegramMiniApp = (): void => {
   try {
     webApp.ready();
     webApp.expand();
-    // На части клиентов Telegram повторный expand нужен для стабильного fullscreen.
-    requestAnimationFrame(() => {
-      webApp.expand();
-    });
-    window.setTimeout(() => {
-      webApp.expand();
-    }, 120);
-    disableCloseSwipe();
-    requestAnimationFrame(disableCloseSwipe);
-    window.setTimeout(disableCloseSwipe, 250);
-    webApp.onEvent("viewportChanged", disableCloseSwipe);
-    applyOverflowSwipeLock();
-    requestAnimationFrame(applyOverflowSwipeLock);
-    window.setTimeout(applyOverflowSwipeLock, 250);
-    webApp.onEvent("viewportChanged", applyOverflowSwipeLock);
-    window.addEventListener("resize", applyOverflowSwipeLock, { passive: true });
-    keepScrollLocked();
-    requestAnimationFrame(keepScrollLocked);
-    window.setTimeout(keepScrollLocked, 250);
-    setupTouchSwipeGuard();
+    reapplySwipeProtection();
+    requestAnimationFrame(reapplySwipeProtection);
+    window.setTimeout(reapplySwipeProtection, 200);
 
     webApp.setHeaderColor("bg_color");
     const backgroundColor = "#21090C" as `#${string}`;
     webApp.setBackgroundColor(backgroundColor);
+
+    webApp.onEvent("viewportChanged", (event?: { isStateStable?: boolean }) => {
+      reapplySwipeProtection();
+      if (event?.isStateStable) {
+        webApp.expand();
+      }
+    });
   } catch (err) {
     console.error("[MONTE] Telegram WebApp init", err);
   }

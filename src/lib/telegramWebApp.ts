@@ -1,5 +1,6 @@
 type TelegramUser = {
   first_name?: string;
+  id?: number;
   username?: string;
   photo_url?: string;
 };
@@ -10,15 +11,18 @@ type TelegramThemeParams = {
   hint_color?: string;
 };
 
+type TelegramEventCallback = (event?: { isStateStable?: boolean }) => void;
+
 type TelegramWebAppLike = {
   ready: () => void;
   expand: () => void;
   disableVerticalSwipes?: () => void;
+  enableVerticalSwipes?: (isEnabled: boolean) => void;
   isVersionAtLeast: (version: string) => boolean;
   setHeaderColor: (color: "bg_color" | "secondary_bg_color" | `#${string}`) => void;
   setBackgroundColor: (color: "bg_color" | "secondary_bg_color" | `#${string}`) => void;
-  onEvent: (eventType: string, callback: () => void) => void;
-  offEvent: (eventType: string, callback: () => void) => void;
+  onEvent: (eventType: string, callback: TelegramEventCallback) => void;
+  offEvent: (eventType: string, callback: TelegramEventCallback) => void;
   colorScheme: "light" | "dark";
   themeParams: TelegramThemeParams;
   viewportStableHeight: number;
@@ -46,6 +50,7 @@ export const getTelegramWebApp = (): TelegramWebAppLike => {
     ready: () => undefined,
     expand: () => undefined,
     disableVerticalSwipes: () => undefined,
+    enableVerticalSwipes: () => undefined,
     isVersionAtLeast: () => false,
     setHeaderColor: () => undefined,
     setBackgroundColor: () => undefined,
