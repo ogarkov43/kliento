@@ -72,7 +72,7 @@ const App = () => {
 
         <section className="-mx-2 -mt-2 flex flex-1 flex-col">
           {activeTab === "home" ? (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 pb-[calc(7rem+var(--tg-safe-bottom))]">
               <div className="home-card-reveal" style={{ "--reveal-delay": "0ms" } as CSSProperties}>
                 <HomeTournamentCard />
               </div>
