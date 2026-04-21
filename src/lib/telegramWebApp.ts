@@ -1,5 +1,6 @@
 type TelegramUser = {
   first_name?: string;
+  photo_url?: string;
 };
 
 type TelegramThemeParams = {

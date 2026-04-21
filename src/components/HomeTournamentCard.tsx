@@ -1,6 +1,7 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ratingBg from "@/assets/rating-bg.svg";
 import tournamentBg from "@/assets/tournament-bg.svg";
+import { getTelegramWebApp } from "@/lib/telegramWebApp";
 
 type HomeTournamentCardProps = {
   titleOnly?: boolean;
@@ -19,6 +20,8 @@ export const HomeTournamentCard = ({
   overlayImageSrc,
 }: HomeTournamentCardProps) => {
   const titleWords = titleText.trim().split(/\s+/);
+  const lottieSource = `${import.meta.env.BASE_URL}center.lottie`;
+  const userAvatarUrl = getTelegramWebApp().initDataUnsafe.user?.photo_url;
 
   return (
     <article
@@ -38,7 +41,7 @@ export const HomeTournamentCard = ({
 
           <div className="pointer-events-none absolute inset-0 z-[1] -translate-y-16 translate-x-[3rem]">
             <DotLottieReact
-              src="/center.lottie"
+              src={lottieSource}
               autoplay
               loop
               segment={[0, 120]}
@@ -124,8 +127,16 @@ export const HomeTournamentCard = ({
 
       {titleOnly ? (
         <div className="absolute bottom-6 left-6 z-10 flex flex-col gap-1.5">
-          <div className="pointer-events-none flex flex-row gap-1.5" aria-hidden="true">
-            <span className="h-[64px] w-[64px] rounded-full bg-[#FFFFFF]" />
+          <div className="pointer-events-none flex flex-row gap-1.5">
+            {userAvatarUrl ? (
+              <img
+                src={userAvatarUrl}
+                alt="Аватар пользователя Telegram"
+                className="h-[64px] w-[64px] rounded-full bg-[#FFFFFF] object-cover"
+              />
+            ) : (
+              <span className="h-[64px] w-[64px] rounded-full bg-[#FFFFFF]" aria-hidden="true" />
+            )}
             <span className="h-[64px] w-[64px] rounded-full bg-[#FFFFFF]" />
             <span className="h-[64px] w-[64px] rounded-full bg-[#FFFFFF]" />
           </div>

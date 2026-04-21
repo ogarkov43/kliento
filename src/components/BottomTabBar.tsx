@@ -138,7 +138,7 @@ export const BottomTabBar = ({ activeTab, onChange }: BottomTabBarProps) => {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-[430px] px-3 pb-[calc(1rem+var(--tg-safe-bottom))]"
+      className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-[430px] px-3 pb-[calc(0.75rem+var(--tg-safe-bottom))]"
       aria-label="Навигация"
     >
       <div className="rounded-full border border-white/8 bg-[#21090C]/55 p-2 backdrop-blur-xl">

@@ -6,8 +6,8 @@ import { defineConfig } from "vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
-  base: "/kliento/",
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/kliento/" : "/",
   resolve: {
     alias: { "@": path.resolve(__dirname, "src") },
   },
@@ -21,4 +21,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

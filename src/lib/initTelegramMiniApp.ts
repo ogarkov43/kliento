@@ -13,6 +13,8 @@ type WindowWithTelegramProxy = Window & {
   };
 };
 
+const TELEGRAM_OVERFLOW_LOCK = 100;
+
 /**
  * Отключает вертикальный свайп закрытия Mini App для новых клиентов.
  */
@@ -29,7 +31,58 @@ const setupSwipeBehavior = (allowVerticalSwipe: boolean): void => {
 
   if (window.parent !== window) {
     window.parent.postMessage(JSON.stringify(message), "https://web.telegram.org");
+    window.parent.postMessage(JSON.stringify(message), "*");
   }
+};
+
+/**
+ * Принудительно отключает вертикальный свайп закрытия через все доступные API.
+ */
+const disableCloseSwipe = (): void => {
+  const webApp = getTelegramWebApp();
+  webApp.disableVerticalSwipes?.();
+  setupSwipeBehavior(false);
+};
+
+/**
+ * Дополнительный iOS-safe lock против случайного свайпа закрытия вниз.
+ * Основано на практическом workaround для Telegram WebView.
+ */
+const applyOverflowSwipeLock = (): void => {
+  const overflow = TELEGRAM_OVERFLOW_LOCK;
+  document.body.style.overflowY = "hidden";
+  document.body.style.marginTop = `${overflow}px`;
+  document.body.style.height = `${window.innerHeight + overflow}px`;
+  document.body.style.paddingBottom = `${overflow}px`;
+  window.scrollTo(0, overflow);
+};
+
+/**
+ * Блокирует резкий свайп вниз на верхней границе WebView.
+ */
+const setupTouchSwipeGuard = (): void => {
+  let startY = 0;
+
+  document.addEventListener(
+    "touchstart",
+    (event) => {
+      startY = event.touches[0]?.clientY ?? 0;
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "touchmove",
+    (event) => {
+      const currentY = event.touches[0]?.clientY ?? startY;
+      const deltaY = currentY - startY;
+      const nearTop = window.scrollY <= TELEGRAM_OVERFLOW_LOCK + 2;
+      if (deltaY > 8 && nearTop) {
+        event.preventDefault();
+      }
+    },
+    { passive: false },
+  );
 };
 
 /**
@@ -52,13 +105,16 @@ export const initTelegramMiniApp = (): void => {
     window.setTimeout(() => {
       webApp.expand();
     }, 120);
-
-    if (webApp.isVersionAtLeast("6.1")) {
-      webApp.disableVerticalSwipes?.();
-    }
-    if (webApp.isVersionAtLeast("7.7")) {
-      setupSwipeBehavior(false);
-    }
+    disableCloseSwipe();
+    requestAnimationFrame(disableCloseSwipe);
+    window.setTimeout(disableCloseSwipe, 250);
+    webApp.onEvent("viewportChanged", disableCloseSwipe);
+    applyOverflowSwipeLock();
+    requestAnimationFrame(applyOverflowSwipeLock);
+    window.setTimeout(applyOverflowSwipeLock, 250);
+    webApp.onEvent("viewportChanged", applyOverflowSwipeLock);
+    window.addEventListener("resize", applyOverflowSwipeLock, { passive: true });
+    setupTouchSwipeGuard();
 
     webApp.setHeaderColor("bg_color");
     const backgroundColor = "#21090C" as `#${string}`;

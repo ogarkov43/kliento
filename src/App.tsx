@@ -66,11 +66,11 @@ const App = () => {
         className="flex min-h-dvh flex-col px-5 pt-[calc(1.25rem+var(--tg-safe-top))]"
         style={{ backgroundColor: bg, color: text }}
       >
-        <header className="mb-10 mt-2 flex justify-center">
-          <img src={logo} alt="МОНТЕ" className="h-auto w-[60px]" />
+        <header className="mb-4 mt-0 flex justify-center">
+          <img src={logo} alt="МОНТЕ" className="h-auto w-[42px]" />
         </header>
 
-        <section className="-mx-2 -mt-2 flex flex-1 flex-col">
+        <section className="-mx-2 mt-0 flex flex-1 flex-col">
           {activeTab === "home" ? (
             <div className="flex flex-col gap-2 pb-[calc(7rem+var(--tg-safe-bottom))]">
               <div className="home-card-reveal" style={{ "--reveal-delay": "0ms" } as CSSProperties}>
